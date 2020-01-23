@@ -15,6 +15,7 @@
 |177| Nth Highest Salary | https://leetcode.com/problems/nth-highest-salary/ | 29.2% |
 |180| Consecutive Numbers| https://leetcode.com/problems/consecutive-numbers/ | 36.8% |
 |626| Exchange Seats| https://leetcode.com/problems/exchange-seats/ | 58.1% |
+|178| Rank Scores | https://leetcode.com/problems/rank-scores/ | 	41.5%|
 
 
 ## Hard
