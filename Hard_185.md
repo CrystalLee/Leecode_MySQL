@@ -25,30 +25,34 @@ WHERE
 ;
 ```
 
-2. Soluton in discussion
+2. My Accepted Answer on MySQL server
 
 ```
+with temp as (
+select  
+    Name,
+    Salary,
+    DepartmentId,
+    dense_rank() over(partition by DepartmentId  order by DepartmentId, salary desc) as rn
+from
+    employee
+)
 select
-    d.Name as Department,
-    a. Name as Employee,
-    a. Salary
-from (
-  select  
-      Employee.*,
-      dense_rank() over (partition by DepartmentId order by Salary desc) as DeptPayRank
-  from
-      Employee
-) a
-join
-  Department d
-  on a. DepartmentId = d. Id
+    Department.Name Department,
+    temp.Name Employee,
+    temp.Salary Salary
+from    
+    temp
+    join Department on Department.Id = temp.DepartmentId
 where
-  DeptPayRank <=3
-;
+    rn <=3
+Order by
+    Department.Name,
+    Salary DESC
+    ;
 ```
 
-3. My Solution (Not Accepted)
-
+3. My initial Solution on MySQL (Not Accepted)
 
 ```
 # Write your MySQL query statement below
